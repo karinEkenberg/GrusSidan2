@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GrusSidan</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GrusSidan.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+</head>
+<body style="margin:0; padding:0; background-image: url('@Url.Content("~/images/pebble-1090536_1920.jpg")'); background-size: cover; background-position: center;">
+    <header class="p-3 bg-dark text-white" style="font-family: karla;">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="~/images/Namnlöst-1kopiera.webp" style="height: 40px; width: auto;" />
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                    <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Products" asp-action="Index">Produkter</a></li>
+                    <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a></li>
+                    <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="OmOss" asp-action="Index">Om oss</a></li>
+
+                </ul>
+                <a class="link-headers" href="https://localhost:7265/tomkundvagn">
+                    <img src="~/images/cart-svgrepo-com (3).svg" style="height: 40px; width: auto;" />
+                </a>
+                <ul class="icon-list" style="width: 20%; padding-top: 2%;">
+                    <li>
+                        <a class="link-headers" href="#">
+                            <img src="~/images/phone-filled-svgrepo-com.svg" style="height: 20px; width: auto;" />
+                            0221-12345
+                        </a>
+                    </li>
+                    <li>
+                        <a class="link-headers" href="#">
+                            <img src="~/images/email-svgrepo-com.svg" style="height: 20px; width: auto;" />
+                        </a>
+                        info@grus.se   
+                    </li>
+                </ul>
+            
+     
+            </div>
+
+        </div>
+    </header>
+
+
+ 
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <div class="footer">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-dark text-white">
+            
+
+            <ul class="nav col-md-4 justify-content-start">
+                <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Products" asp-action="Index">Produkter</a></li>
+                <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a></li>
+                <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="OmOss" asp-action="Index">Om oss</a></li>
+            </ul>
+            <p class="col-md-4 mb-0 text-body-secondary" style="color:#E4BB62; padding-left:10%;">© 2024 Grus Sidan</p>
+            <ul class="icon-list" style="width: 20%; padding-top: 2%;">
+                <li>
+                    <a class="link-headers" href="#">
+                        <img src="~/images/phone-filled-svgrepo-com.svg" style="height: 20px; width: auto;" />
+                        0221-12345
+                    </a>
+                </li>
+                <li>
+                    <a class="link-headers" href="#">
+                        <img src="~/images/email-svgrepo-com.svg" style="height: 20px; width: auto;" />
+                    </a>
+                    info@grus.se
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

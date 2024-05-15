@@ -1,0 +1,94 @@
+/*
+standard div style:
+<div style="border-radius: 15px; border-width: 3px; border-style:solid; border-color: #E4BB62; 
+    background-color: #FFEABD; width:80%; margin:auto; margin-top:55px; margin-bottom:55px; padding:15px;>
+</div>
+*/
+
+:root {
+    --logo-color: #E4BB62; 
+    --secondary-color: #9C885E; 
+    --background-color: #FFEABD; 
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background: #F37A1D;
+    border-top: 3px solid #F37A1D;
+}
+
+* {
+    font-family: karla;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--logo-color);
+}
+
+.standard-div {
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #E4BB62;
+    background-color: #FFEABD;
+    width: 100%;
+    margin: auto;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    padding: 25px;
+}
+
+.standard-button {
+    background-color: var(--logo-color);
+    color:black;
+    border-radius: 25px;
+    border-style: none;
+    padding: 10px;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-color: #E4BB62; /* Ange den önskade bakgrundsfärgen här */
+}
+
+#map {
+    height: 300px;
+}
+
+.link-headers {
+    padding-left: 5%;
+}
+
+.icon-list {
+    list-style-type: none;
+}

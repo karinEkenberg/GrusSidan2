@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Tom kundvagn";
+}
+
+<section class="standard-div">
+    <h2 class="text-center">Vill du hämta på plats?</h2>
+    <p class="text-center">
+        All betalning på plats sker via <img src="~/images/swish kopiera.webp" style="height: 20px; width:auto;" /> Swish!
+    </p>
+</section>
+
+<section class="standard-div text-center">
+    <h2 class="text-center">Din kundvagn är tom...</h2>
+    <p></p>
+    <img src="~/images/empty-cart-svgrepo-com.svg" style="display:block; margin-left:auto; margin-right:auto; width:50%; height:auto; margin-bottom: 30px;" />
+    <a class="standard-button mb-4" asp-area="" asp-controller="Products" asp-action="Index" style="margin-bottom: 20px;">Tillbaka till shop</a>
+</section>

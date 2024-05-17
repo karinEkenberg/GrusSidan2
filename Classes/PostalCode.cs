@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GrusSidan.Classes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GrusSidan.Classes
 {
@@ -12,5 +16,4 @@ namespace GrusSidan.Classes
         // Navigation property
         public virtual ICollection<Customer> Customers { get; set; }
     }
-}
-}
+} // Här finns den stängande kringlan som avslutar definitionen av PostalCode-klassen

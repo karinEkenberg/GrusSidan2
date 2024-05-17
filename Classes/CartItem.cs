@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GrusSidan.Classes;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class CartItem
 {

@@ -93,10 +93,20 @@ a:hover {
     list-style-type: none;
 }
 
-#ikonen {
-    transition: transform 0.3s ease;
+#ikonen:hover {
+    transform: rotate(10deg); /* Tilt-effekten - roterar bilden 5 grader åt höger */
 }
 
-    #ikonen:hover {
-        transform: rotate(5deg);
+.bounce-on-hover:hover {
+    animation: bounce 0.5s infinite alternate; /* Använd keyframe-animationen "bounce" vid hover */
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0); /* Inget hopp vid början */
     }
+
+    100% {
+        transform: translateY(-10px); /* Hopp 10px upp vid slutet */
+    }
+}

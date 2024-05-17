@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "SendEmail";
+}
+
+<section class="standard-div text-center">
+    <h2>Meddelande skickat</h2>
+    <p>@ViewBag.Message</p>
+    <p>Du får svar inom 3-5 arbetsdagar.</p>
+    <a class="standard-button" href="@Url.Action("Index", "Home")">Tillbaka</a>
+</section>

@@ -1,9 +1,3 @@
-/*
-standard div style:
-<div style="border-radius: 15px; border-width: 3px; border-style:solid; border-color: #E4BB62; 
-    background-color: #FFEABD; width:80%; margin:auto; margin-top:55px; margin-bottom:55px; padding:15px;>
-</div>
-*/
 
 :root {
     --logo-color: #E4BB62; 
@@ -34,7 +28,6 @@ html {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here */
     height: 60px;
     background: #F37A1D;
     border-top: 3px solid #F37A1D;
@@ -62,11 +55,12 @@ a:hover {
     border-style: solid;
     border-color: #E4BB62;
     background-color: #FFEABD;
-    width: 100%;
+    width: 80%;
     margin: auto;
     margin-top: 55px;
     margin-bottom: 55px;
     padding: 25px;
+    max-width: 900px;
 }
 
 .standard-button {

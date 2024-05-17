@@ -36,7 +36,7 @@
 
 <section class="standard-div">
     <h2 class="text-center">Behöver du hjälp?</h2>
-    <form action="process_form.php" method="post">
+    <form action="@Url.Action("SendEmail", "Kontakt")" method="post" class="mx-auto" style="max-width: 400px;">
         <label for="name">Namn:</label><br>
         <input type="text" id="name" name="name" required><br>
 
@@ -46,8 +46,9 @@
         <label for="question">Fråga:</label><br>
         <textarea id="question" name="question" rows="4" required></textarea><br>
 
-        <button type="submit">Skicka</button>
+        <button class="standard-button" type="submit">Skicka</button>
     </form>
+
 </section>
 
 <script>

@@ -1,4 +1,7 @@
-﻿@{
+﻿    @using GrusSidan.Classes
+    @model List<Product>
+
+@{
     ViewData["Title"] = "Produkter";
 }
 
@@ -7,4 +10,21 @@
     <p class="text-center">
         All betalning på plats sker via <img src="~/images/swish kopiera.webp" style="height: 20px; width:auto;" /> Swish!
     </p>
+</section>
+
+<section class="standard-div">
+
+
+    @foreach (var product in Model)
+    {
+        <div class="product-item">
+            <h3>@product.Name</h3>
+            <p>Price: @product.Price</p>
+            <p>Description: @product.Description</p>
+            <p>Tons to Purchase: @product.TonsToPurchase</p>
+            <img src="@product.ImageUrl" alt="@product.Name">
+            <!-- Lägg till mer information eller knappar om det behövs -->
+        </div>
+    }
+
 </section>

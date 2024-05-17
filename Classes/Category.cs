@@ -7,8 +7,9 @@ namespace GrusSidan.Classes
         [Key]
         public int CategoryID { get; set; }
         public string Name { get; set; }
+        public string ImageUrl { get; set; }
 
-        // Navigationsegenskaper
-        public ICollection<ProductCategory> ProductCategories { get; set; }
+        // Navigation property
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

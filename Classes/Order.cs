@@ -6,17 +6,12 @@ namespace GrusSidan.Classes
     public class Order
     {
         [Key]
-        public int OrderId { get; set; }
+        public int OrderID { get; set; }
+        public int CustomerID { get; set; }
 
-        // Foreign keys
-        [ForeignKey("Product")]
-        public int ProductId { get; set; }
-
-        [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
-
-        // Navigation properties
-        public virtual Product Product { get; set; }
+        // Navigation property
+        [ForeignKey("CustomerID")]
         public virtual Customer Customer { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

@@ -53,7 +53,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    color: var(--logo-color);
+    color: var(--secondary-color);
 }
 
 .standard-div {
@@ -92,3 +92,11 @@ a:hover {
 .icon-list {
     list-style-type: none;
 }
+
+#ikonen {
+    transition: transform 0.3s ease;
+}
+
+    #ikonen:hover {
+        transform: rotate(5deg);
+    }

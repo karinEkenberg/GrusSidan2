@@ -3,7 +3,19 @@
 }
 
 <section class="standard-div">
-    <h2 class="text-center">Våra Produkter</h2>
+    <h2 class="text-center">Kategorier</h2>
+    <div class="row" style="margin:auto;">
+        @foreach (var category in ViewBag.Categories)
+        {
+            <div class="col-md-3">
+                <h3 class="text-center">@category.Name</h3>
+                <img src="~/images/sten-kopiera.jpg" alt="@category.Name" style="width: 100%; height: auto;" />
+                <img id="ikonen" src="~/images/excavator-svgrepo-com.svg" style="display: block; margin-left: auto; margin-right: auto;  height: auto; width: 30%;" />
+                <p>Är du redo att lyfta din utomhusmiljö till nästa nivå? Då är det dags att överväga grus som en nyckelingrediens för att förbättra skönheten och funktionaliteten i ditt utrymme.</p>
+                <a href="#" class="standard-button" style="margin:auto;">Läs mer</a>
+            </div>
+        }
+    </div>
 </section>
 
 <section class="standard-div">

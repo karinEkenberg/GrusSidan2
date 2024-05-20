@@ -1,0 +1,29 @@
+﻿    @using GrusSidan.Classes
+    @model List<Product>
+
+@{
+    ViewData["Title"] = "Produkter";
+}
+
+<section style="width: 60%; margin: auto;">
+    <h2 class="text-center">Vårt Sortiment</h2>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 product-div">
+                <div class="product-item">
+                    <h3>@product.Name</h3>
+                    <p>Pris: @product.Price</p>
+                    <p>Beskrivning: @product.ShortDescription</p>
+                    <img src="@product.ImageUrl" alt="@product.Name" style="width: 100%;">
+                    <!-- Lägg till mer information eller knappar om det behövs -->
+                    <a href="@Url.Action("Details", "Product", new { id = product.ProductID })" class="standard-button">Läs mer..</a>
+                </div>
+            </div>
+
+
+        }
+    </div>
+
+
+</section>

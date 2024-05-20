@@ -50,7 +50,6 @@ a:hover {
 }
 
 .standard-div {
-    border-radius: 15px;
     border-width: 3px;
     border-style: solid;
     border-color: #E4BB62;
@@ -61,12 +60,12 @@ a:hover {
     margin-bottom: 55px;
     padding: 25px;
     max-width: 900px;
+    box-shadow: 10px 10px rgb(12, 10, 10, 0,49);
 }
 
 .standard-button {
     background-color: var(--logo-color);
     color:black;
-    border-radius: 25px;
     border-style: none;
     padding: 10px;
 }
@@ -93,6 +92,19 @@ a:hover {
 
 .bounce-on-hover:hover {
     animation: bounce 0.5s infinite alternate; /* Använd keyframe-animationen "bounce" vid hover */
+}
+
+.product-div {
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #E4BB62;
+    background-color: #FFEABD;
+    margin: auto;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    margin-left: 5px;
+    padding: 25px;
 }
 
 @keyframes bounce {

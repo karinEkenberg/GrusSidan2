@@ -15,7 +15,7 @@ namespace GrusSidan.Controllers
 
         public IActionResult SendEmail()
         {
-            ViewData["Title"] = "SendEmail";
+            ViewData["Title"] = "Meddelande skickat";
             return View();
         }
 
@@ -33,11 +33,11 @@ namespace GrusSidan.Controllers
                 using (var smtpClient = new SmtpClient("smtp.example.com"))
                 {
                     // Ange dina autentiseringsuppgifter för e-postservern om det behövs
-                    smtpClient.Credentials = new NetworkCredential("karin@mixvision.se", "your-password");
+                    smtpClient.Credentials = new NetworkCredential("", "your-password");
 
                     // Skapa e-postmeddelandet
                     var mailMessage = new MailMessage();
-                    mailMessage.From = new MailAddress("karin@mixvision.se");
+                    mailMessage.From = new MailAddress("");
                     mailMessage.To.Add("recipient@example.com");
                     mailMessage.Subject = "Fråga från webbplatsen";
                     mailMessage.Body = $"Namn: {name}\nE-post: {email}\nFråga: {question}";

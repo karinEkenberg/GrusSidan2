@@ -10,6 +10,8 @@ builder.Services.AddDbContext<GrusDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnecton"));
 });
 
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

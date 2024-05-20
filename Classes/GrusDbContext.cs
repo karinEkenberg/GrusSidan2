@@ -20,6 +20,7 @@ namespace GrusSidan.Classes
         public virtual DbSet<PostalCode> PostalCodes { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CartItem> CartItems { get; set; }
+        public object HttpContext { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

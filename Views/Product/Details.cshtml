@@ -1,0 +1,48 @@
+﻿@model GrusSidan.Classes.Product
+
+@{
+    ViewData["Title"] = "Produktdetaljer";
+}
+<section class="standard-div" style="display: flex; justify-content: space-between;">
+    <div style="width: 50%;">
+        <h2 class="text-center">@Model.Name</h2>
+        <a href="@Url.Action("Details", "Products", new { id = Model.ProductID })">
+            <img src="@Model.ImageUrl" alt="@Model.Name" style="width: 100%;">
+        </a>
+    </div>
+    <div style="width: 45%;">
+        <p style="margin-top: 10%; margin-left: 2px;">Beskrivning: @Model.Description</p>
+        <h4>Vill du hämta på plats?</h4>
+        <p>
+            All betalning på plats sker via <img src="~/images/swish kopiera.webp" style="height: 20px; width:auto;" /> Swish!
+        </p>
+        <p>Pris: <strong>@Model.Price</strong> kr</p>
+        <a class="standard-button add-to-cart" href="#" data-product-id="@Model.ProductID">Lägg till</a>
+    </div>
+</section>
+
+<section class="standard-div">
+    <h3 class="text-center">Relaterade produkter</h3>
+    <div style="width: 50%; margin:auto;">
+        @if (Model.Category != null && Model.Category.Products.Any(p => p.ProductID != Model.ProductID))
+        {
+            <div class="related-products-container" style="display: flex; justify-content: space-between;">
+                @foreach (var relatedProduct in Model.Category.Products.Where(p => p.ProductID != Model.ProductID))
+                {
+                    <div style="width: 30%;">
+                        <h4>@relatedProduct.Name</h4>
+                        <a href="@Url.Action("Details", "Product", new { id = relatedProduct.ProductID })">
+                            <img src="@relatedProduct.ImageUrl" alt="@relatedProduct.Name" style="width: 100%;">
+                        </a>
+                        <p>Pris: <strong>@relatedProduct.Price</strong> kr</p>
+                        <a class="standard-button add-to-cart" href="#" data-product-id="@Model.ProductID">Lägg till</a>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>Inga relaterade produkter hittades.</p>
+        }
+    </div>
+</section>

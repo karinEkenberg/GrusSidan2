@@ -24,12 +24,22 @@ namespace GrusSidan.Controllers
 
         public IActionResult Category(int categoryId)
         {
-            var productsInCategory = _context.Products
-                                              .Where(p => p.CategoryID == categoryId)
-                                              .ToList();
+            // Hämta kategorinamnet baserat på categoryId
+            var category = _context.Categories.Find(categoryId);
+            var categoryName = category?.Name ?? "Okänd kategori";
 
+            // Hämta produkterna inom kategorin
+            var productsInCategory = _context.Products
+                                             .Where(p => p.CategoryID == categoryId)
+                                             .ToList();
+
+            // Skicka kategorinamnet till vyn via ViewData
+            ViewData["CategoryName"] = categoryName;
+
+            // Returnera vyn med produkterna
             return View(productsInCategory);
         }
+
 
         public IActionResult Details(int id)
         {

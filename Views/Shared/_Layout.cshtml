@@ -10,66 +10,67 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/GrusSidan.styles.css" asp-append-version="true" />
+    <link rel="icon" type="image/png" href="~/images/Namnlöst-1kopiera.webp" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin="" />
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
 </head>
-<body style="margin:0; padding:0; background-image: url('@Url.Content("~/images/texture-2408546_1920.jpg")'); background-size: cover; background-position: center;">
+<body  style="margin:0; padding: 0; background-image: url('@Url.Content("~/images/texture-2408546_1920.jpg")'); background-size: cover; background-position: center;">
     <header class="p-3 bg-dark text-white" style="font-family: karla;">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <!-- Varumärkeslogotyp -->
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img src="~/images/Namnlöst-1kopiera.webp" style="height: 50px; width: auto;" />
                 </a>
 
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <!-- Huvudmeny -->
+                <ul class="nav d-flex flex-wrap col-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle bg-dark" style="color:#E4BB62;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-controller="Product" asp-action="Index">
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle px-2" style="color:#E4BB62;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Produkter
-                        </button>
-                        <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
-                            @if (ViewBag.Categories != null)
-                            {
-                                @foreach (var category in ViewBag.Categories)
-                                {
-                                    <li><a class="dropdown-item" style="color:#E4BB62;" asp-area="" asp-controller="Product" asp-action="Category" asp-route-categoryId="@category.CategoryID">@category.Name</a></li>
-                                }
-                            }
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" style="color:#E4BB62;" href="https://localhost:7265/Product/Category?categoryId=1">Sand</a></li>
+                            <li><a class="dropdown-item" style="color:#E4BB62;" href="https://localhost:7265/Product/Category?categoryId=2">Sten</a></li>
+                            <li><a class="dropdown-item" style="color:#E4BB62;" href="https://localhost:7265/Product/Category?categoryId=3">Grus</a></li>
                         </ul>
-                    </div>
-
+                    </li>
                     <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="OmOss" asp-action="Index">Om oss</a></li>
                     <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a></li>
+                </ul>
 
-                </ul>
-                <a class="link-headers" href="https://localhost:7265/kundvagn">
-                    <img src="~/images/cart-svgrepo-com (3).svg" style="height: 40px; width: auto;" />
-                </a>
-                <ul class="icon-list" style="width: 20%; padding-top: 2%;">
-                    <li>
-                        <a class="link-headers" href="#">
-                            <img src="~/images/phone-filled-svgrepo-com.svg" style="height: 20px; width: auto;" />
-                            0221-12345
-                        </a>
-                    </li>
-                    <li>
-                        <a class="link-headers" href="#">
-                            <img src="~/images/email-svgrepo-com.svg" style="height: 20px; width: auto;" />
-                        </a>
-                        info@grus.se   
-                    </li>
-                </ul>
-            
-     
+                <!-- Länkar och ikoner -->
+                <div class="d-flex align-items-center">
+                    <a class="link-headers me-3" href="https://localhost:7265/kundvagn">
+                        <img src="~/images/cart-svgrepo-com (3).svg" style="height: 40px; width: auto;" />
+                    </a>
+                    <ul class="list-unstyled mb-0">
+                        <li class="me-3">
+                            <a class="link-headers text-white" href="#">
+                                <img src="~/images/phone-filled-svgrepo-com.svg" style="height: 20px; width: auto;" class="me-1" />
+                                <span class="d-lg-none" style="color:#E4BB62;">0221-12345</span>
+                                <span class="d-none d-lg-inline" style="color:#E4BB62;">0221-12345</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link-headers text-white" href="#">
+                                <img src="~/images/email-svgrepo-com.svg" style="height: 20px; width: auto;" class="me-1" />
+                                <span class="d-lg-none" style="color:#E4BB62;">info@grus.se</span>
+                                <span class="d-none d-lg-inline" style="color:#E4BB62;">info@grus.se</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
         </div>
     </header>
+
+
 
 
  
@@ -80,27 +81,39 @@
     </div>
     <div class="footer">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top bg-dark text-white">
-            
 
-            <ul class="nav col-md-4 justify-content-start">
+
+            <!-- Huvudmeny -->
+            <ul class="nav d-flex flex-wrap col-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
-                <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Product" asp-action="Index">Produkter</a></li>
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle px-2" style="color:#E4BB62;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Produkter
+                    </a>
+                    <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" style="color:#E4BB62;" href="https://localhost:7265/Product/Category?categoryId=1">Sand</a></li>
+                        <li><a class="dropdown-item" style="color:#E4BB62;" href="https://localhost:7265/Product/Category?categoryId=2">Sten</a></li>
+                        <li><a class="dropdown-item" style="color:#E4BB62;" href="https://localhost:7265/Product/Category?categoryId=3">Grus</a></li>
+                    </ul>
+                </li>
                 <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="OmOss" asp-action="Index">Om oss</a></li>
                 <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a></li>
             </ul>
             <p class="col-md-4 mb-0 text-body-secondary" style="color:#E4BB62; padding-left:10%;">© 2024 Grus Sidan</p>
-            <ul class="icon-list" style="width: 20%; padding-top: 2%;">
-                <li>
-                    <a class="link-headers" href="#">
-                        <img src="~/images/phone-filled-svgrepo-com.svg" style="height: 20px; width: auto;" />
-                        0221-12345
+            <ul class="list-unstyled mb-0">
+                <li class="me-3">
+                    <a class="link-headers text-white" href="#">
+                        <img src="~/images/phone-filled-svgrepo-com.svg" style="height: 20px; width: auto;" class="me-1" />
+                        <span class="d-lg-none" style="color:#E4BB62;">0221-12345</span>
+                        <span class="d-none d-lg-inline" style="color:#E4BB62;">0221-12345</span>
                     </a>
                 </li>
                 <li>
-                    <a class="link-headers" href="#">
-                        <img src="~/images/email-svgrepo-com.svg" style="height: 20px; width: auto;" />
+                    <a class="link-headers text-white" href="#">
+                        <img src="~/images/email-svgrepo-com.svg" style="height: 20px; width: auto;" class="me-1" />
+                        <span class="d-lg-none" style="color:#E4BB62;">info@grus.se</span>
+                        <span class="d-none d-lg-inline" style="color:#E4BB62;">info@grus.se</span>
                     </a>
-                    info@grus.se
                 </li>
             </ul>
         </footer>

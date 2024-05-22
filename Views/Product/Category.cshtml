@@ -1,7 +1,8 @@
 ﻿@model List<GrusSidan.Classes.Product>
 
 @{
-    ViewData["Title"] = "Produkter inom kategori";  // Ange titeln för vyn
+    string categoryName = ViewData["CategoryName"] as string;
+    ViewData["Title"] = $"{categoryName}";  // Ange titeln för vyn
 }
 
 <section style="width: 80%; margin: auto; margin-top: 55px; margin-bottom: 55px;">

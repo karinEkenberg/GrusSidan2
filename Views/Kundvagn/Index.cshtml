@@ -1,17 +1,16 @@
-﻿@model List<GrusSidan.Classes.Product> 
+﻿@model List<GrusSidan.Classes.Product>
 
 @{
     ViewData["Title"] = "Kundvagn";
 }
 
-<h2>Kundvagn</h2>
-
 @if (Model.Count > 0)
 {
-    <table class="table">
+    <table class="table standard-div">
         <thead>
             <tr>
                 <th>Namn</th>
+                <th>Antal</th>
                 <th>Pris</th>
                 <th>Åtgärder</th>
             </tr>
@@ -21,9 +20,10 @@
             {
                 <tr>
                     <td>@product.Name</td>
+                    <td>@product.TonsToPurchase</td>
                     <td>@product.Price kr</td>
                     <td>
-                        <button class="remove-from-cart" data-product-id="@product.ProductID">Ta bort</button>
+                        <button class="remove-from-cart standard-button" data-product-id="@product.ProductID">Ta bort</button>
                     </td>
                 </tr>
             }
@@ -33,4 +33,19 @@
 else
 {
     <p>Din kundvagn är tom.</p>
+}
+
+@section scripts {
+    <script>
+        // Lägg till en klickhändelse för att ta bort produkten från kundvagnen
+        $('.remove-from-cart').click(function () {
+            var productId = $(this).data('product-id');
+
+            // Skicka en AJAX-förfrågan för att ta bort produkten från kundvagnen
+            $.post('@Url.Action("RemoveFromCart", "Kundvagn")', { productId: productId }, function (data) {
+                // Uppdatera kundvagnens vy efter borttagning av produkten
+                location.reload();
+            });
+        });
+    </script>
 }

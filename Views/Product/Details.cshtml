@@ -10,14 +10,22 @@
             <img src="@Model.ImageUrl" alt="@Model.Name" style="width: 100%;">
         </a>
     </div>
-    <div style="width: 45%;">
+    <div style="width: 45%;" asp-action="AddToCart" method="post">
         <p style="margin-top: 10%; margin-left: 2px;">Beskrivning: @Model.Description</p>
         <h4>Vill du hämta på plats?</h4>
         <p>
             All betalning på plats sker via <img src="~/images/swish kopiera.webp" style="height: 20px; width:auto;" /> Swish!
         </p>
         <p>Pris: <strong>@Model.Price</strong> kr</p>
-        <a class="standard-button add-to-cart" href="#" data-product-id="@Model.ProductID">Lägg till</a>
+        <form href="https://localhost:7265/kundvagn" method="post">
+            <div class="form-group">
+                <label for="quantity">Antal:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" max="12">
+            </div>
+            <input type="hidden" name="productId" value="@Model.ProductID">
+            <button type="submit" class="standard-button add-to-cart">Lägg till</button>
+        </form>
+
     </div>
 </section>
 
@@ -29,13 +37,20 @@
             <div class="related-products-container" style="display: flex; justify-content: space-between;">
                 @foreach (var relatedProduct in Model.Category.Products.Where(p => p.ProductID != Model.ProductID))
                 {
-                    <div style="width: 30%;">
+                    <div style="width: 30%;" asp-action="AddToCart" method="post">
                         <h4>@relatedProduct.Name</h4>
                         <a href="@Url.Action("Details", "Product", new { id = relatedProduct.ProductID })">
                             <img src="@relatedProduct.ImageUrl" alt="@relatedProduct.Name" style="width: 100%;">
                         </a>
                         <p>Pris: <strong>@relatedProduct.Price</strong> kr</p>
-                        <a class="standard-button add-to-cart" href="#" data-product-id="@Model.ProductID">Lägg till</a>
+                        <form action="@Url.Action("Kundvagn")" method="post">
+                            <div class="form-group">
+                                <label for="quantity">Antal:</label>
+                                <input type="number" id="quantity" name="quantity" value="1" min="1" max="12">
+                            </div>
+                            <input type="hidden" name="productId" value="@Model.ProductID">
+                            <button type="submit" class="standard-button add-to-cart">Lägg till</button>
+                        </form>
                     </div>
                 }
             </div>

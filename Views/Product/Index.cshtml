@@ -1,29 +1,28 @@
 ﻿    @using GrusSidan.Classes
-    @model List<Product>
+    @model IEnumerable<GrusSidan.Classes.Product>
 
 @{
     ViewData["Title"] = "Produkter";
 }
 
-<section style="width: 60%; margin: auto;">
-    <h2 class="text-center">Vårt Sortiment</h2>
+<section style="width: 80%; margin: auto; margin-top: 55px; margin-bottom: 55px;">
     <div class="row">
         @foreach (var product in Model)
         {
-            <div class="col-md-4 product-div">
-                <div class="product-item">
-                    <h3>@product.Name</h3>
-                    <p>Pris: @product.Price</p>
-                    <p>Beskrivning: @product.ShortDescription</p>
-                    <img src="@product.ImageUrl" alt="@product.Name" style="width: 100%;">
-                    <!-- Lägg till mer information eller knappar om det behövs -->
-                    <a href="@Url.Action("Details", "Product", new { id = product.ProductID })" class="standard-button">Läs mer..</a>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" style="background-color: #FFEABD;">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center">@product.Name</h5>
+                        <p class="card-text flex-grow-1">Beskrivning: @product.ShortDescription</p>
+                        <p class="card-text">Pris: @product.Price</p>
+                        <a href="@Url.Action("Details", "Product", new { id = product.ProductID })" class="btn btn-primary mt-auto standard-button">Läs mer..</a>
+                    </div>
                 </div>
             </div>
-
-
         }
     </div>
+
 
 
 </section>

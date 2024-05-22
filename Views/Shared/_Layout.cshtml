@@ -18,7 +18,7 @@
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
 </head>
-<body style="margin:0; padding:0; background-image: url('@Url.Content("~/images/pebble-1090536_1920.jpg")'); background-size: cover; background-position: center;">
+<body style="margin:0; padding:0; background-image: url('@Url.Content("~/images/texture-2408546_1920.jpg")'); background-size: cover; background-position: center;">
     <header class="p-3 bg-dark text-white" style="font-family: karla;">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -28,12 +28,26 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
-                    <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Product" asp-action="Index">Produkter</a></li>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle bg-dark" style="color:#E4BB62;" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" asp-area="" asp-controller="Product" asp-action="Index">
+                            Produkter
+                        </button>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                            @if (ViewBag.Categories != null)
+                            {
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <li><a class="dropdown-item" style="color:#E4BB62;" asp-area="" asp-controller="Product" asp-action="Category" asp-route-categoryId="@category.CategoryID">@category.Name</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+
                     <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="OmOss" asp-action="Index">Om oss</a></li>
                     <li><a class="nav-link px-2" style="color:#E4BB62;" asp-area="" asp-controller="Kontakt" asp-action="Index">Kontakt</a></li>
 
                 </ul>
-                <a class="link-headers" href="https://localhost:7265/tomkundvagn">
+                <a class="link-headers" href="https://localhost:7265/kundvagn">
                     <img src="~/images/cart-svgrepo-com (3).svg" style="height: 40px; width: auto;" />
                 </a>
                 <ul class="icon-list" style="width: 20%; padding-top: 2%;">

@@ -1,0 +1,24 @@
+﻿@model List<GrusSidan.Classes.Product>
+
+@{
+    ViewData["Title"] = "Produkter inom kategori";  // Ange titeln för vyn
+}
+
+<section style="width: 80%; margin: auto; margin-top: 55px; margin-bottom: 55px;">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100" style="background-color: #FFEABD;">
+                    <img src="@product.ImageUrl" alt="@product.Name" style="width: 100%;">
+                    <h3 class="text-center" style="margin-top: 1%;">@product.Name</h3>
+                    <div class="card-body d-flex flex-column">
+                    <p>Beskrivning: @product.ShortDescription</p>
+                    <p>Pris: @product.Price</p>
+                    <a href="@Url.Action("Details", "Product", new { id = product.ProductID })" class="btn btn-primary mt-auto standard-button">Läs mer..</a>
+                </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

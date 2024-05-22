@@ -20,7 +20,7 @@ namespace GrusSidan.Controllers
         {
             var categories = _context.Categories.ToList();
             ViewBag.Categories = categories;
-            return View();
+            return View(categories);
         }
 
         public IActionResult Privacy()

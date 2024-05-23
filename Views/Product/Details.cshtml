@@ -3,31 +3,42 @@
 @{
     ViewData["Title"] = "Produktdetaljer";
 }
-<section class="standard-div" style="display: flex; justify-content: space-between;">
-    <div style="width: 50%;">
-        <h2 class="text-center">@Model.Name</h2>
-        <a href="@Url.Action("Details", "Products", new { id = Model.ProductID })">
-            <img src="@Model.ImageUrl" alt="@Model.Name" style="width: 100%;">
-        </a>
-    </div>
-    <div style="width: 45%;" asp-action="AddToCart" method="post">
-        <p style="margin-top: 10%; margin-left: 2px;">Beskrivning: @Model.Description</p>
-        <h4>Vill du hämta på plats?</h4>
-        <p>
-            All betalning på plats sker via <img src="~/images/swish kopiera.webp" style="height: 20px; width:auto;" /> Swish!
-        </p>
-        <p>Pris: <strong>@Model.Price</strong> kr</p>
-        <form href="https://localhost:7265/kundvagn" method="post">
-            <div class="form-group">
-                <label for="quantity">Antal:</label>
-                <input type="number" id="quantity" name="quantity" value="1" min="1" max="12">
-            </div>
-            <input type="hidden" name="productId" value="@Model.ProductID">
-            <button type="submit" class="standard-button add-to-cart">Lägg till</button>
-        </form>
-
-    </div>
+<section style="width: 80%; margin: auto; margin-top: 55px; margin-bottom: 55px;">
+<div class="row">
+    <aside class="aside">
+        <ul style="text-decoration: none; list-style: none; font-size: 25px;">
+                <li><a class="dropdown-item" style="color:black; background-color: transparent; font-weight: bold;" href="https://localhost:7265/Product/Category?categoryId=1">Sand</a></li>
+                <li><a class="dropdown-item" style="color:black; background-color: transparent; font-weight: bold;" href="https://localhost:7265/Product/Category?categoryId=2">Sten</a></li>
+                <li><a class="dropdown-item" style="color: black; background-color: transparent; font-weight: bold;" href="https://localhost:7265/Product/Category?categoryId=3">Grus</a></li>
+        </ul>
+    </aside>
+    <section class="standard-div" style="display: flex; justify-content: space-between;">
+        <div style="width: 50%;">
+            <h2 class="text-center">@Model.Name</h2>
+            <a href="@Url.Action("Details", "Products", new { id = Model.ProductID })">
+                <img src="@Model.ImageUrl" alt="@Model.Name" style="width: 100%;">
+            </a>
+        </div>
+        <div style="width: 45%;" asp-action="AddToCart" method="post">
+            <p style="margin-top: 10%; margin-left: 2px;">Beskrivning: @Model.Description</p>
+            <h4>Vill du hämta på plats?</h4>
+            <p>
+                All betalning på plats sker via <img src="~/images/swish kopiera.webp" style="height: 20px; width:auto;" /> Swish!
+            </p>
+            <p>Pris: <strong>@Model.Price</strong> kr</p>
+            <form action="@Url.Action("ViewCart", "Kundvagn")" method="post">
+                <div class="form-group">
+                    <label for="quantity">Antal:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="12">
+                </div>
+                <input type="hidden" name="productId" value="@Model.ProductID">
+                <button type="submit" class="standard-button add-to-cart addcartbtn">Lägg till</button>
+            </form>
+        </div>
+    </section>
+</div>
 </section>
+
 
 <section class="standard-div">
     <h3 class="text-center">Relaterade produkter</h3>
@@ -39,17 +50,17 @@
                 {
                     <div style="width: 30%;" asp-action="AddToCart" method="post">
                         <h4>@relatedProduct.Name</h4>
-                        <a href="@Url.Action("Details", "Product", new { id = relatedProduct.ProductID })">
+                        <a href="@Url.Action("Details", new { id = relatedProduct.ProductID })">
                             <img src="@relatedProduct.ImageUrl" alt="@relatedProduct.Name" style="width: 100%;">
                         </a>
                         <p>Pris: <strong>@relatedProduct.Price</strong> kr</p>
-                        <form action="@Url.Action("Kundvagn")" method="post">
+                        <form action="@Url.Action("ViewCart", "Kundvagn")" method="post">
                             <div class="form-group">
                                 <label for="quantity">Antal:</label>
                                 <input type="number" id="quantity" name="quantity" value="1" min="1" max="12">
                             </div>
                             <input type="hidden" name="productId" value="@Model.ProductID">
-                            <button type="submit" class="standard-button add-to-cart">Lägg till</button>
+                            <button type="submit" class="standard-button add-to-cart addcartbtn">Lägg till</button>
                         </form>
                     </div>
                 }
@@ -60,4 +71,5 @@
             <p>Inga relaterade produkter hittades.</p>
         }
     </div>
-</section>
+</section> 
+

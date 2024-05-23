@@ -32,5 +32,15 @@ namespace GrusSidan.Classes
                 .Property(p => p.Price)
                 .HasColumnType("decimal(18, 2)");
         }
+
+        internal void AddToCart(object product, int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object GetProductById(int productID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

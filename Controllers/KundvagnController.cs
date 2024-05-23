@@ -13,7 +13,7 @@ namespace GrusSidan.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult ViewCart()
         {
             List<Product> products = _context.Products.ToList(); // Konvertera till lista
             ViewData["Title"] = "Produkter";
@@ -25,9 +25,10 @@ namespace GrusSidan.Controllers
         [HttpPost]
         public IActionResult AddToCart(int productID, int quantity)
         {
+
             _context.Products.Add(new Product { });
             _context.SaveChanges();
-            return RedirectToAction("Index"); // Omdirigera till kundvagnens sida efter att ha lagt till i kundvagnen
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

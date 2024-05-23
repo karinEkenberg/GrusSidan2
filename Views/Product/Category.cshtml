@@ -5,21 +5,33 @@
     ViewData["Title"] = $"{categoryName}";  // Ange titeln för vyn
 }
 
+
+
+
 <section style="width: 80%; margin: auto; margin-top: 55px; margin-bottom: 55px;">
     <div class="row">
+        <aside class="aside">
+            <ul style="text-decoration: none; list-style: none; font-size: 25px;">
+                <li><a class="dropdown-item" style="color:black; background-color: transparent; font-weight: bold;" href="https://localhost:7265/Product/Category?categoryId=1">Sand</a></li>
+                <li><a class="dropdown-item" style="color:black; background-color: transparent; font-weight: bold;" href="https://localhost:7265/Product/Category?categoryId=2">Sten</a></li>
+                <li><a class="dropdown-item" style="color: black; background-color: transparent; font-weight: bold;" href="https://localhost:7265/Product/Category?categoryId=3">Grus</a></li>
+            </ul>
+        </aside>
+
         @foreach (var product in Model)
         {
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" style="width: 26%;">
                 <div class="card h-100" style="background-color: #FFEABD;">
                     <img src="@product.ImageUrl" alt="@product.Name" style="width: 100%;">
                     <h3 class="text-center" style="margin-top: 1%;">@product.Name</h3>
                     <div class="card-body d-flex flex-column">
-                    <p>Beskrivning: @product.ShortDescription</p>
-                    <p>Pris: @product.Price</p>
-                    <a href="@Url.Action("Details", "Product", new { id = product.ProductID })" class="btn btn-primary mt-auto standard-button">Läs mer..</a>
-                </div>
+                        <p>Beskrivning: @product.ShortDescription</p>
+                        <p>Pris: @product.Price</p>
+                        <a href="@Url.Action("Details", "Product", new { id = product.ProductID })" class="btn btn-primary mt-auto standard-button">Läs mer..</a>
+                    </div>
                 </div>
             </div>
         }
     </div>
 </section>
+
